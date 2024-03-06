@@ -1,0 +1,75 @@
+.searchForm {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.searchForm form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.searchForm input {
+  padding: 10px;
+  border: 1px solid gainsboro;
+  border-radius: 10px;
+}
+
+.searchForm input[type="text"] {
+  width: 300px;
+}
+
+.searchForm input[type="submit"] {
+  width: 150px;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.container {
+  background-color: #f1f5f9;
+  width: 358px;
+  height: 48px;
+  padding: 6px 48px 6px 16px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 6px;
+}
+
+.label {
+  color: #7b878f;
+}
+
+.input {
+  background: none;
+  border: none;
+  width: 100%;
+  outline: 1px solid red;
+}
+
+.close {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  right: 6px;
+  top: 12px;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.4s linear;
+}
+
+.close:hover {
+  opacity: 0.7;
+}
+
+.close__icon {
+  display: block;
+  width: 12px;
+  aspect-ratio: 1;
+  padding: 6px;
+}
