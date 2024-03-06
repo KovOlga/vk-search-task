@@ -1,23 +1,16 @@
-import { FC, useContext, useEffect } from "react";
-import { SearchContext } from "./SearchContext";
+import { FC } from "react";
 import UserCard from "../UserCard/UserCard";
 
 import "./style.css";
+import { useAppSelector } from "../hooks/hooks";
+import { RootState } from "../types";
 
 const SearchResults: FC = () => {
-  // const { users } = useContext(SearchContext);
-
-  useEffect(() => {
-    fetch("https://dummyjson.com/users/search?q=John")
-      .then((res) => res.json())
-      .then((json) => console.log(json));
-  }, []);
+  const users = useAppSelector((store: RootState) => store.users.users);
 
   return (
     <div className="usersList">
-      {/* {users.map((user) => (
-        <UserCard {...user} />
-      ))} */}
+      {users.length && users.map((user) => <UserCard {...user} />)}
     </div>
   );
 };

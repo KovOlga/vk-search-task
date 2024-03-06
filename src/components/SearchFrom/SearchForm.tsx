@@ -1,12 +1,14 @@
 import { ChangeEvent, FC, FormEvent, useState } from "react";
 import styles from "./styles.module.css";
 import closeIcon from "../../assets/icon_close.svg";
+import { getUsers } from "../../services/actions";
+import { useAppDispatch } from "../hooks/hooks";
 
 const SearchForm: FC = () => {
   const [value, setValue] = useState<string>("");
+  const dispatch = useAppDispatch();
 
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
     setValue(e.target.value);
   };
   const clearInput = () => {
@@ -14,7 +16,7 @@ const SearchForm: FC = () => {
   };
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    console.log(value);
+    dispatch(getUsers(value));
   };
   return (
     <div className="searchForm">
