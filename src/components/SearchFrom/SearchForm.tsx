@@ -31,7 +31,7 @@ const SearchForm: FC = () => {
       return false;
     } else if (!value.match(regex)) {
       setError(() => {
-        return { isError: true, errorMessage: "В имени не хватает букв" };
+        return { isError: true, errorMessage: "В имени не хватает латиницы" };
       });
       return false;
     }
