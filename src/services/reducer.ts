@@ -1,4 +1,4 @@
-import { TUser } from "../components/types/data";
+import { TUser } from "../types/data";
 import {
   GET_USERS_FAILED,
   GET_USERS_REQUEST,

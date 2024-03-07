@@ -1,5 +1,5 @@
-import { AppDispatch, AppThunk } from "../components/types";
-import { TUser } from "../components/types/data";
+import { AppDispatch, AppThunk } from "../types";
+import { TUser } from "../types/data";
 import { getUsersList } from "./api";
 
 export const GET_USERS_REQUEST = "GET_USERS_REQUEST";
@@ -28,7 +28,9 @@ export const getUsersAction = (): IGetUsersRequestAction => ({
   type: GET_USERS_REQUEST,
 });
 
-export const getUsersSuccessAction = (users: TUser[]): IGetUsersSuccessAction => ({
+export const getUsersSuccessAction = (
+  users: TUser[]
+): IGetUsersSuccessAction => ({
   type: GET_USERS_SUCCESS,
   users,
 });

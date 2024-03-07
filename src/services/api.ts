@@ -1,4 +1,4 @@
-import { TUser } from "../components/types/data";
+import { TUser } from "../types/data";
 
 interface IOptions {
   method: string;

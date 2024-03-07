@@ -1,8 +1,8 @@
 import { ChangeEvent, FC, FormEvent, useState } from "react";
-import styles from "./styles.module.css";
+import style from "./style.module.css";
 import closeIcon from "../../assets/icon_close.svg";
 import { getUsers } from "../../services/actions";
-import { useAppDispatch } from "../hooks/hooks";
+import { useAppDispatch } from "../../hooks/hooks";
 
 const SearchForm: FC = () => {
   const [value, setValue] = useState<string>("");
@@ -19,12 +19,9 @@ const SearchForm: FC = () => {
     dispatch(getUsers(value));
   };
   return (
-    <div className="searchForm">
-      <form onSubmit={handleSubmit}>
-        <div className={styles.container}>
-          <label htmlFor="search" className={styles.label}>
-            Поиск
-          </label>
+    <div className={style.searchForm}>
+      <form className={style.form} onSubmit={handleSubmit}>
+        <div className={style.container}>
           <input
             type="text"
             value={value}
@@ -32,12 +29,12 @@ const SearchForm: FC = () => {
             id="search"
             name="search"
             onChange={onInputChange}
-            className={styles.input}
-            placeholder="Введите имя"
+            className={style.input}
+            placeholder="Кого вы хотите найти?"
             // onBlur={handleBlur}
           />
-          <button onClick={clearInput} className={styles.close} type="button">
-            <img className={styles.close__icon} src={closeIcon} />
+          <button onClick={clearInput} className={style.close} type="button">
+            <img className={style.close__icon} src={closeIcon} />
           </button>
         </div>
 

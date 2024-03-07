@@ -1,16 +1,16 @@
 import { FC } from "react";
-import "./style.css";
-import { TUser } from "../types/data";
+import style from './style.module.css';
+import { TUser } from "../../types/data";
 
 const UserCard: FC<TUser> = (props) => {
   return (
-    <div className="userCard">
-      <img className="userPic" src={props.image} />
-      <div className="userInfo">
+    <li className={style.userCard}>
+      <img className={style.userPic} src={props.image} />
+      <div className={style.userInfo}>
         <div>{`${props.firstName} ${props.lastName}`}</div>
         <div>{props.address.city}</div>
       </div>
-    </div>
+    </li>
   );
 };
 
