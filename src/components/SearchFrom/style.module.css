@@ -30,6 +30,10 @@
   border: none;
 }
 
+.input:focus {
+  outline: none;
+}
+
 .searchForm input[type="text"] {
   width: 300px;
 }
