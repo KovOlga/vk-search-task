@@ -8,6 +8,9 @@ interface IOptions {
 }
 
 const getResponse = async (res: Response) => {
+  if (!res.ok) {
+    console.log(`Статус ошибки: ${res.status}`);
+  }
   if (res.ok) {
     return res.json();
   }
@@ -23,7 +26,7 @@ export const getUsersList = (
 ): Promise<{
   users: TUser[];
 }> => {
-  return request(`https://dummyjson.com/users/search?q=${name}`, {
+  return request(`https://dummyjson.com/users/psearch?q=${name}`, {
     method: "GET",
     headers: { "Content-Type": "application/json" },
   });

@@ -14,9 +14,9 @@ const SearchForm: FC = () => {
   const clearInput = () => {
     setValue("");
   };
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    dispatch(getUsers(value));
+    dispatch(getUsers(value.trim()));
   };
   return (
     <div className={style.searchForm}>
