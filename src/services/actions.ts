@@ -45,7 +45,7 @@ export const getUsers: AppThunk = (name: string) => {
         console.log("users", users);
         dispatch(getUsersSuccessAction(users));
       })
-      .catch((e) => {
+      .catch(() => {
         dispatch(getUsersFailedAction());
       });
   };

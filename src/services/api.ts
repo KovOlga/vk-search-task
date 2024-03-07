@@ -4,9 +4,7 @@ interface IOptions {
   method: string;
   headers: {
     "Content-Type": "application/json";
-    Authorization?: string;
   };
-  body?: string;
 }
 
 const getResponse = async (res: Response) => {
