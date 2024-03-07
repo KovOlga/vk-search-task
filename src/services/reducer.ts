@@ -47,6 +47,7 @@ export const usersReducer = (
         dataRequest: false,
         dataFailed: false,
         emptyRes: true,
+        users: [],
       };
     }
     case GET_USERS_FAILED: {
