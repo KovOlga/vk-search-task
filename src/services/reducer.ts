@@ -1,5 +1,6 @@
 import { TUser } from "../types/data";
 import {
+  GET_USERS_EMPTY_RES,
   GET_USERS_FAILED,
   GET_USERS_REQUEST,
   GET_USERS_SUCCESS,
@@ -8,12 +9,14 @@ import {
 
 export interface IInitialState {
   users: TUser[];
+  emptyRes: boolean;
   dataRequest: boolean;
   dataFailed: boolean;
 }
 
 const initialState: IInitialState = {
   users: [],
+  emptyRes: false,
   dataRequest: false,
   dataFailed: false,
 };
@@ -34,7 +37,16 @@ export const usersReducer = (
         ...state,
         dataRequest: false,
         dataFailed: false,
+        emptyRes: false,
         users: action.users,
+      };
+    }
+    case GET_USERS_EMPTY_RES: {
+      return {
+        ...state,
+        dataRequest: false,
+        dataFailed: false,
+        emptyRes: true,
       };
     }
     case GET_USERS_FAILED: {
