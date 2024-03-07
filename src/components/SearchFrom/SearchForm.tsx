@@ -19,6 +19,9 @@ const SearchForm: FC = () => {
   };
   const clearInput = () => {
     setValue("");
+    setError(() => {
+      return { isError: false, errorMessage: "" };
+    });
   };
   const validateInput = () => {
     if (!value) {
