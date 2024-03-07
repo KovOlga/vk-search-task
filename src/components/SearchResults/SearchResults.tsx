@@ -4,6 +4,7 @@ import style from "./style.module.css";
 import { useAppSelector } from "../../hooks/hooks";
 import { RootState } from "../../types";
 import Spinner from "../Spinner/Spinner";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
 
 const SearchResults: FC = () => {
   const users = useAppSelector((store: RootState) => store.users.users);
@@ -21,7 +22,7 @@ const SearchResults: FC = () => {
         !reqFailed &&
         users.length > 0 &&
         users.map((user) => <UserCard key={user.id} {...user} />)}
-      {reqFailed && <>Ошибка запроса</>}
+      {reqFailed && <ErrorMessage />}
     </ul>
   );
 };
