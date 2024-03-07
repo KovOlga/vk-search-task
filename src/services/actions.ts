@@ -53,7 +53,6 @@ export const getUsers: AppThunk = (name: string) => {
     dispatch(getUsersAction());
     return getUsersList(name)
       .then(({ users }) => {
-        console.log("users", users);
         if (!users.length) {
           dispatch(getUsersEmptyAction());
         } else {

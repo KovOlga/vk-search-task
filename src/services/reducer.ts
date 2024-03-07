@@ -10,15 +10,15 @@ import {
 export interface IInitialState {
   users: TUser[];
   emptyRes: boolean;
-  dataRequest: boolean;
-  dataFailed: boolean;
+  reqInProccess: boolean;
+  reqFailed: boolean;
 }
 
 const initialState: IInitialState = {
   users: [],
   emptyRes: false,
-  dataRequest: false,
-  dataFailed: false,
+  reqInProccess: false,
+  reqFailed: false,
 };
 
 export const usersReducer = (
@@ -29,14 +29,16 @@ export const usersReducer = (
     case GET_USERS_REQUEST: {
       return {
         ...state,
-        dataRequest: true,
+        reqInProccess: true,
+        reqFailed: false,
+        emptyRes: false,
       };
     }
     case GET_USERS_SUCCESS: {
       return {
         ...state,
-        dataRequest: false,
-        dataFailed: false,
+        reqInProccess: false,
+        reqFailed: false,
         emptyRes: false,
         users: action.users,
       };
@@ -44,14 +46,14 @@ export const usersReducer = (
     case GET_USERS_EMPTY_RES: {
       return {
         ...state,
-        dataRequest: false,
-        dataFailed: false,
+        reqInProccess: false,
+        reqFailed: false,
         emptyRes: true,
         users: [],
       };
     }
     case GET_USERS_FAILED: {
-      return { ...state, dataFailed: true, dataRequest: false };
+      return { ...state, reqFailed: true, reqInProccess: false };
     }
     default:
       return state;

@@ -7,14 +7,14 @@ interface IOptions {
   };
 }
 
-const getResponse = async (res: Response) => {
-  if (!res.ok) {
-    console.log(`Статус ошибки: ${res.status}`);
+const getResponse = async (req: Response) => {
+  if (!req.ok) {
+    console.log(`Статус ошибки: ${req.status}`);
   }
-  if (res.ok) {
-    return res.json();
+  if (req.ok) {
+    return req.json();
   }
-  return Promise.reject(await res.json());
+  return Promise.reject(await req.json());
 };
 
 const request = (url: string, options: IOptions) => {
@@ -26,7 +26,7 @@ export const getUsersList = (
 ): Promise<{
   users: TUser[];
 }> => {
-  return request(`https://dummyjson.com/users/psearch?q=${name}`, {
+  return request(`https://dummyjson.com/users/search?q=${name}`, {
     method: "GET",
     headers: { "Content-Type": "application/json" },
   });
